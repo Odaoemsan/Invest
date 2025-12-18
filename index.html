@@ -1,27 +1,72 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>دار النمو للاستثمار العقاري</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>الحفار الآلي</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    #excavator {
+        font-size: 100px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    #excavator:active {
+        transform: scale(0.95);
+    }
+
+    #stage {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #0f5132;
+    }
+
+    #info {
+        margin-top: 10px;
+        color: #555;
+    }
+</style>
 </head>
+
 <body>
 
-<header>
-    <nav>
-        <a href="index.html">الرئيسية</a>
-        <a href="plans.html">خطط الاستثمار</a>
-        <a href="login.html">تسجيل الدخول</a>
-    </nav>
-</header>
+<h2>🚜 الحفّار الآلي</h2>
 
-<div class="container">
-    <div class="hero">
-        <h1>استثمر بثقة في العقار</h1>
-        <p>منصة دار النمو تتيح لك متابعة استثماراتك العقارية بكل شفافية وأمان</p>
-        <a class="button" href="plans.html">استعرض الخطط</a>
-    </div>
-</div>
+<div id="excavator">🚜</div>
+
+<div id="stage">المرحلة: 0 / 5</div>
+<div id="info">انقر على الحفار 5 مرات للانتقال بين المراحل</div>
+
+<script>
+let clicks = 0;
+let stage = 0;
+
+document.getElementById("excavator").addEventListener("click", function () {
+    clicks++;
+
+    if (clicks === 5) {
+        clicks = 0;
+        stage++;
+
+        if (stage <= 5) {
+            document.getElementById("stage").innerText =
+                "المرحلة: " + stage + " / 5";
+        }
+
+        if (stage === 5) {
+            document.getElementById("info").innerText =
+                "✅ اكتملت جميع المراحل!";
+        }
+    }
+});
+</script>
 
 </body>
 </html>
